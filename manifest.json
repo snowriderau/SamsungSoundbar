@@ -1,0 +1,9 @@
+{
+  "domain": "ipsamsung_soundbar",
+  "name": "IP Samsung Soundbar",
+  "documentation": "https://github.com/snowriderau/SamsungSoundbar/",
+  "dependencies": [],
+  "codeowners": ["@snowriderau"],
+  "requirements": [],
+  "version": "1.0.0"
+}
