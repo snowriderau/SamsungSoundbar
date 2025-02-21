@@ -66,11 +66,11 @@ Command: <name>GetWooferLevel</name>
 Example URL:
 http://<IP_ADDRESS>:56001/UIC?cmd=%3Cname%3EGetWooferLevel%3C/name%3E
 
-**Usage
+# Usage
 Configure Your Device:**
 In your Home Assistant configuration.yaml, add an entry for the SamsungSoundbar component with the appropriate host, port, and name:
 
-#yaml
+**yaml**
 Copy
 media_player:
   - platform: samsung_soundbar
@@ -79,16 +79,16 @@ media_player:
     name: Living Room Soundbar
 
     
-#Testing Commands:
+# Testing Commands:
 You can test the commands by accessing the URLs above in your web browser or via tools like curl or Postman. Ensure your device is on the same network.
 
-#Review Logs:
+# Review Logs:
 Check Home Assistant’s logs to see detailed debug information about the commands and responses.
 
-#Contributing
+# Contributing
 Contributions and improvements are welcome! If you discover additional commands or improvements, feel free to submit an issue or a pull request.
 
-#Disclaimer
+# Disclaimer
 This component and the commands listed here are provided as-is, based on testing with a specific model of Samsung Soundbar. Compatibility with other models is not guaranteed. Use at your own risk.
 
 Happy automating!
