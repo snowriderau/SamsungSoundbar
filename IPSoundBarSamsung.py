@@ -20,7 +20,7 @@ import homeassistant.helpers.config_validation as cv
 
 _LOGGER = logging.getLogger(__name__)
 
-DEFAULT_NAME = "Samsung Soundbar"
+DEFAULT_NAME = "IP Samsung Soundbar"
 DEFAULT_PORT = 56001
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
