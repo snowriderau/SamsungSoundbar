@@ -1,4 +1,4 @@
-**Home Assistant Local IP Control of Samsung Soundbar**
+# Home Assistant Local IP Control of Samsung Soundbar
 FYI Testing Still in Progress.
 
 This repository contains a custom Home Assistant component for locally controlling your Samsung Soundbar over your home network without the need for Samsung’s SmartThings API. The following commands have been tested on my device and can be used to query or control key functions.
