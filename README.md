@@ -159,6 +159,39 @@ Artifacts:
 
 `GetBass`, `SetBass`, `GetTreble`, and `SetTreble` timed out on this device/firmware during this run. That suggests these names are not exposed on this model, or require a different command family/endpoint.
 
+## Deep Dive Pass 2 (March 3, 2026)
+
+A wider pattern sweep was run using command/parameter templates from:
+- `https://github.com/bacl/WAM_API_DOC/blob/master/API_Methods.md`
+- community libraries (`samsung_multiroom`, `pywam`)
+
+Artifacts:
+- `scripts/deep_dive_wam.py`
+- `data/wam_method_catalog.json` (method + endpoint + description + sample params)
+- `data/deep_probe_results.json` (2,600 probes)
+- `data/deep_probe_summary.md`
+- `scripts/validate_control_candidates.py`
+- `data/control_validation.json`
+- `data/command_descriptions.md`
+
+### Follow-up validation results for requested controls
+
+- `PowerOn` / `PowerOff`: timed out repeatedly in validation (not reliable on this device).
+- `SetPowerStatus` with `power=0` (`dec`) can return `ok` and report `<powerStatus>0</powerStatus>`, but is flaky.
+- `VolumeUp` / `VolumeDown`: not reliable (mostly timeout/no-op).
+- `SetVolume` absolute is reliable:
+  - `<name>SetVolume</name><p type="dec" name="volume" val="N"/>`
+- `SetVolume` with `delta` behaves as absolute, not relative:
+  - `<name>SetVolume</name><p type="dec" name="delta" val="10"/>` sets volume to `10`.
+
+### Pattern takeaways
+
+- `Get*`: mostly `<name>Method</name>` only.
+- `Set*`: strict parameter count/name/type matching; mismatches usually return `Invalid parameter number`.
+- Numeric controls commonly use `type="dec"` with explicit field names (`volume`, `wooferlevel`, `presetindex`, `eqvalueX`).
+- `type="str"` is used for enums/selections (`mute`, `function`, etc.).
+- `type="cdata"` is mostly metadata/content labels and usually not needed for remote-control primitives.
+
 ## Local Web Test Harness
 
 This repo now includes a simple local web app to test and track Samsung soundbar commands.

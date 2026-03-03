@@ -67,9 +67,9 @@
   },
   {
     "id": "power-on",
-    "name": "Power On",
+    "name": "Power On (raw)",
     "xml_command": "<name>PowerOn</name>",
-    "expected": "Turn on soundbar",
+    "expected": "Timed out in repeat validation",
     "status": "not_working",
     "last_tested_at": "2026-03-03T03:39:47.825356+00:00",
     "last_http_status": null,
@@ -78,9 +78,9 @@
   },
   {
     "id": "power-off",
-    "name": "Power Off",
+    "name": "Power Off (raw)",
     "xml_command": "<name>PowerOff</name>",
-    "expected": "Turn off soundbar",
+    "expected": "Timed out in repeat validation",
     "status": "not_working",
     "last_tested_at": "2026-03-03T03:39:31.821449+00:00",
     "last_http_status": null,
@@ -515,5 +515,71 @@
     "last_http_status": 200,
     "last_error": null,
     "last_response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><UIC><method>SoundMode</method><version>1.0</version><speakerip>192.168.1.5</speakerip><user_identifier>public</user_identifier><response result=\"ok\"><soundMode>standard</soundMode></response></UIC>"
+  },
+  {
+    "id": "set-power-status-0",
+    "name": "Set Power Status 0",
+    "xml_command": "<name>SetPowerStatus</name><p type=\"dec\" name=\"power\" val=\"0\"/>",
+    "expected": "Sometimes accepted; maps powerStatus to 0",
+    "status": "working",
+    "last_tested_at": null,
+    "last_http_status": null,
+    "last_error": null,
+    "last_response": null
+  },
+  {
+    "id": "set-power-status-1",
+    "name": "Set Power Status 1",
+    "xml_command": "<name>SetPowerStatus</name><p type=\"dec\" name=\"power\" val=\"1\"/>",
+    "expected": "Flaky/timeout in repeat validation",
+    "status": "not_working",
+    "last_tested_at": null,
+    "last_http_status": null,
+    "last_error": null,
+    "last_response": null
+  },
+  {
+    "id": "volume-up-raw",
+    "name": "Volume Up (raw)",
+    "xml_command": "<name>VolumeUp</name>",
+    "expected": "Timed out in repeat validation",
+    "status": "not_working",
+    "last_tested_at": null,
+    "last_http_status": null,
+    "last_error": null,
+    "last_response": null
+  },
+  {
+    "id": "volume-down-raw",
+    "name": "Volume Down (raw)",
+    "xml_command": "<name>VolumeDown</name>",
+    "expected": "Mostly timed out in repeat validation",
+    "status": "not_working",
+    "last_tested_at": null,
+    "last_http_status": null,
+    "last_error": null,
+    "last_response": null
+  },
+  {
+    "id": "set-volume-abs",
+    "name": "Set Volume (absolute)",
+    "xml_command": "<name>SetVolume</name><p type=\"dec\" name=\"volume\" val=\"10\"/>",
+    "expected": "Reliable absolute set",
+    "status": "working",
+    "last_tested_at": null,
+    "last_http_status": null,
+    "last_error": null,
+    "last_response": null
+  },
+  {
+    "id": "set-volume-delta-as-abs",
+    "name": "Set Volume via delta (acts absolute)",
+    "xml_command": "<name>SetVolume</name><p type=\"dec\" name=\"delta\" val=\"10\"/>",
+    "expected": "Reliable; behaves as absolute set, not relative",
+    "status": "working",
+    "last_tested_at": null,
+    "last_http_status": null,
+    "last_error": null,
+    "last_response": null
   }
 ]
