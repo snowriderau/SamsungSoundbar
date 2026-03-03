@@ -1,0 +1,123 @@
+[
+  {
+    "id": "get-volume",
+    "name": "Get Volume",
+    "xml_command": "<name>GetVolume</name>",
+    "expected": "Query current volume",
+    "status": "working",
+    "last_tested_at": "2026-03-03T03:49:29.034690+00:00",
+    "last_http_status": 200,
+    "last_error": null,
+    "last_response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><UIC><method>VolumeLevel</method><version>1.0</version><speakerip>192.168.1.5</speakerip><user_identifier></user_identifier><response result=\"ok\"><volume>21</volume></response></UIC>"
+  },
+  {
+    "id": "set-volume-20",
+    "name": "Set Volume 20",
+    "xml_command": "<name>SetVolume</name><p type=\"int\" name=\"volume\" val=\"20\"/>",
+    "expected": "Set volume to 20",
+    "status": "working",
+    "last_tested_at": "2026-03-03T03:37:24.528140+00:00",
+    "last_http_status": 200,
+    "last_error": null,
+    "last_response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><UIC><method>VolumeLevel</method><version>1.0</version><speakerip>192.168.1.5</speakerip><user_identifier></user_identifier><response result=\"ng\"><errCode>Invalid parameter number</errCode></response></UIC>"
+  },
+  {
+    "id": "get-mute",
+    "name": "Get Mute",
+    "xml_command": "<name>GetMute</name>",
+    "expected": "Query mute state",
+    "status": "working",
+    "last_tested_at": "2026-03-03T03:37:29.840780+00:00",
+    "last_http_status": 200,
+    "last_error": null,
+    "last_response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><UIC><method>MuteStatus</method><version>1.0</version><speakerip>192.168.1.5</speakerip><user_identifier></user_identifier><response result=\"ok\"><mute>on</mute></response></UIC>"
+  },
+  {
+    "id": "set-mute-off",
+    "name": "Set Mute Off",
+    "xml_command": "<name>SetMute</name><p type=\"str\" name=\"mute\" val=\"off\"/>",
+    "expected": "Unmute",
+    "status": "working",
+    "last_tested_at": "2026-03-03T03:37:52.696287+00:00",
+    "last_http_status": 200,
+    "last_error": null,
+    "last_response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><UIC><method>MuteStatus</method><version>1.0</version><speakerip>192.168.1.5</speakerip><user_identifier>public</user_identifier><response result=\"ok\"><mute>off</mute></response></UIC>"
+  },
+  {
+    "id": "get-func",
+    "name": "Get Func",
+    "xml_command": "<name>GetFunc</name>",
+    "expected": "Query input function",
+    "status": "working",
+    "last_tested_at": "2026-03-03T03:38:08.743223+00:00",
+    "last_http_status": 200,
+    "last_error": null,
+    "last_response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><UIC><method>CurrentFunc</method><version>1.0</version><speakerip>192.168.1.5</speakerip><user_identifier></user_identifier><response result=\"ok\"><function>optical</function><submode></submode><connection>on</connection></response></UIC>"
+  },
+  {
+    "id": "set-func-hdmi1",
+    "name": "Set Func HDMI1",
+    "xml_command": "<name>SetFunc</name><p type=\"str\" name=\"function\" val=\"hdmi1\"/>",
+    "expected": "Switch to HDMI1",
+    "status": "working",
+    "last_tested_at": "2026-03-03T03:39:58.638755+00:00",
+    "last_http_status": null,
+    "last_error": "timed out",
+    "last_response": ""
+  },
+  {
+    "id": "power-on",
+    "name": "Power On",
+    "xml_command": "<name>PowerOn</name>",
+    "expected": "Turn on soundbar",
+    "status": "not_working",
+    "last_tested_at": "2026-03-03T03:39:47.825356+00:00",
+    "last_http_status": null,
+    "last_error": "timed out",
+    "last_response": ""
+  },
+  {
+    "id": "power-off",
+    "name": "Power Off",
+    "xml_command": "<name>PowerOff</name>",
+    "expected": "Turn off soundbar",
+    "status": "not_working",
+    "last_tested_at": "2026-03-03T03:39:31.821449+00:00",
+    "last_http_status": null,
+    "last_error": "timed out",
+    "last_response": ""
+  },
+  {
+    "id": "get-info",
+    "name": "Get Info",
+    "xml_command": "<name>GetApInfo</name>",
+    "expected": "Get Info",
+    "status": "working",
+    "last_tested_at": "2026-03-03T04:00:43.629631+00:00",
+    "last_http_status": 200,
+    "last_error": null,
+    "last_response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><UIC><method>ApInfo</method><version>1.0</version><speakerip>192.168.1.5</speakerip><user_identifier></user_identifier><response result=\"ok\"><ssid><![CDATA[NetComm 5836]]></ssid><mac>64:1c:b0:b7:c8:1c</mac><rssi>4</rssi><ch>6</ch><connectiontype>wireless</connectiontype></response></UIC>"
+  },
+  {
+    "id": "equalizer-balance",
+    "name": "Equalizer Balance",
+    "xml_command": "<name>GetEQBalance</name>",
+    "expected": "See EQ Balance",
+    "status": "not_working",
+    "last_tested_at": "2026-03-03T04:03:07.804716+00:00",
+    "last_http_status": null,
+    "last_error": "timed out",
+    "last_response": ""
+  },
+  {
+    "id": "speaker-status",
+    "name": "Speaker Status",
+    "xml_command": "<name>GetSpeakerStatus</name>",
+    "expected": "Balance",
+    "status": "working",
+    "last_tested_at": "2026-03-03T04:05:01.784807+00:00",
+    "last_http_status": 200,
+    "last_error": null,
+    "last_response": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><UIC><method>SpeakerStatus</method><version>1.0</version><speakerip>192.168.1.5</speakerip><user_identifier></user_identifier><response result=\"ok\"><mode>normal</mode></response></UIC>"
+  }
+]

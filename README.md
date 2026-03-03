@@ -92,3 +92,83 @@ Contributions and improvements are welcome! If you discover additional commands 
 This component and the commands listed here are provided as-is, based on testing with a specific model of Samsung Soundbar. Compatibility with other models is not guaranteed. Use at your own risk.
 
 Happy automating!
+
+## Latest Harness Results (March 3, 2026)
+
+The local test harness in this repo (`app.py` + `data/commands.json`) was used to validate command behavior on-device.
+
+### Confirmed working
+
+- `GetVolume`
+  - `<name>GetVolume</name>`
+- `SetVolume` (HTTP responds, payload behavior should be model-verified)
+  - `<name>SetVolume</name><p type="int" name="volume" val="20"/>`
+- `GetMute`
+  - `<name>GetMute</name>`
+- `SetMute` (off)
+  - `<name>SetMute</name><p type="str" name="mute" val="off"/>`
+- `GetFunc`
+  - `<name>GetFunc</name>`
+- `SetFunc` (hdmi1)
+  - `<name>SetFunc</name><p type="str" name="function" val="hdmi1"/>`
+- `GetApInfo`
+  - `<name>GetApInfo</name>`
+- `GetSpeakerStatus`
+  - `<name>GetSpeakerStatus</name>`
+
+### Currently not working (timed out during testing)
+
+- `PowerOn`
+  - `<name>PowerOn</name>`
+- `PowerOff`
+  - `<name>PowerOff</name>`
+- `GetEQBalance`
+  - `<name>GetEQBalance</name>`
+
+## Local Web Test Harness
+
+This repo now includes a simple local web app to test and track Samsung soundbar commands.
+
+### Files added
+- `app.py`: local backend server and API
+- `web/index.html`: UI
+- `web/styles.css`: UI styles
+- `web/app.js`: UI logic
+- `data/config.json`: saved soundbar IP + port
+- `data/commands.json`: command list and test outcomes
+
+### Start the harness
+
+From this repo root:
+
+```bash
+python3 app.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8787
+```
+
+### What it does
+
+- Enter soundbar IP + port and save.
+- Confirm if the soundbar responds to known probe commands.
+- View the command list.
+- Test a command and automatically mark it working/not working.
+- Manually set working/not working.
+- Add a command.
+- Delete a command.
+- Persist all updates to `data/commands.json`.
+
+### API summary
+
+- `GET /api/config`
+- `POST /api/config`
+- `POST /api/ping`
+- `GET /api/commands`
+- `POST /api/commands`
+- `POST /api/commands/{id}/test`
+- `POST /api/commands/{id}/status`
+- `DELETE /api/commands/{id}`

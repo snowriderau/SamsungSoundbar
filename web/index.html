@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Samsung Soundbar Command Harness</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <h1>Samsung Soundbar Command Harness</h1>
+        <p>Configure your soundbar, test commands, and track what actually works.</p>
+      </header>
+
+      <section class="panel grid-two">
+        <div>
+          <h2>Device Config</h2>
+          <label>Soundbar IP</label>
+          <input id="ipInput" placeholder="192.168.1.25" />
+          <label>Port</label>
+          <input id="portInput" type="number" min="1" max="65535" value="56001" />
+          <div class="row">
+            <button id="saveConfigBtn" class="btn primary">Save Config</button>
+            <button id="pingBtn" class="btn">Confirm Responding</button>
+          </div>
+        </div>
+        <div>
+          <h2>Connection Status</h2>
+          <div id="statusCard" class="status status-unknown">
+            <span id="statusDot" class="dot"></span>
+            <div>
+              <p id="statusText">Not checked yet</p>
+              <small id="statusDetail">Run Confirm Responding after entering IP/port.</small>
+            </div>
+          </div>
+          <pre id="pingResponse" class="response-box"></pre>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Add Command</h2>
+        <div class="grid-three">
+          <div>
+            <label>Name</label>
+            <input id="addName" placeholder="Get Woofer Level" />
+          </div>
+          <div>
+            <label>Expected Outcome</label>
+            <input id="addExpected" placeholder="Returns woofer level" />
+          </div>
+          <div>
+            <label>XML Command Payload</label>
+            <input id="addXml" placeholder="&lt;name&gt;GetWooferLevel&lt;/name&gt;" />
+          </div>
+        </div>
+        <button id="addBtn" class="btn primary">Add Command</button>
+      </section>
+
+      <section class="panel">
+        <div class="panel-top">
+          <h2>Command List</h2>
+          <button id="refreshBtn" class="btn">Refresh</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>XML Command</th>
+                <th>Status</th>
+                <th>Last Test</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="commandsBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
