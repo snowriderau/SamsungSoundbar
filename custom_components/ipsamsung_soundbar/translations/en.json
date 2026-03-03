@@ -1,0 +1,21 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Samsung Soundbar Local IP",
+        "description": "Connect to your Samsung soundbar over local network.",
+        "data": {
+          "host": "Host/IP",
+          "port": "Port",
+          "name": "Name"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the soundbar"
+    },
+    "abort": {
+      "already_configured": "This soundbar is already configured"
+    }
+  }
+}

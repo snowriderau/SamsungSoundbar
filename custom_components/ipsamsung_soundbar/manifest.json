@@ -1,0 +1,11 @@
+{
+  "domain": "ipsamsung_soundbar",
+  "name": "Samsung Soundbar Local IP",
+  "documentation": "https://github.com/snowriderau/SamsungSoundbar",
+  "codeowners": ["@snowriderau"],
+  "config_flow": true,
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "requirements": [],
+  "version": "2.0.0"
+}
