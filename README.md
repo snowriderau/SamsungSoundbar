@@ -125,6 +125,40 @@ The local test harness in this repo (`app.py` + `data/commands.json`) was used t
 - `GetEQBalance`
   - `<name>GetEQBalance</name>`
 
+## Brute-Force Discovery Run (March 3, 2026)
+
+A scripted probe was run against `192.168.1.5:56001` using command names sourced from community WAM repos (`WAM_API_DOC`, `samsung_multiroom`, `pywam`) plus targeted soundbar guesses.
+
+- Total tested: `102`
+- Working: `29`
+- Recognized but rejected (wrong/missing parameters): `11`
+- Timeout/no response: `62`
+
+Artifacts:
+- `data/discovered_command_names.txt`
+- `scripts/bruteforce_wam_commands.py`
+- `data/bruteforce_results.json`
+- `data/bruteforce_summary.md`
+
+### Confirmed Woofer / EQ Commands
+
+- Woofer get:
+  - `<name>GetWooferLevel</name>`
+- Woofer set (`-6` to `+6` works with `dec` + `wooferlevel`):
+  - `<name>SetWooferLevel</name><p type="dec" name="wooferlevel" val="-6"/>`
+  - `<name>SetWooferLevel</name><p type="dec" name="wooferlevel" val="6"/>`
+- EQ mode list / active mode:
+  - `<name>Get7BandEQList</name>`
+  - `<name>GetCurrentEQMode</name>`
+- EQ mode set (example):
+  - `<name>Set7bandEQMode</name><p type="dec" name="presetindex" val="1"/>`
+- 7-band EQ value set (example):
+  - `<name>Set7bandEQValue</name><p type="dec" name="presetindex" val="4"/><p type="dec" name="eqvalue1" val="0"/><p type="dec" name="eqvalue2" val="0"/><p type="dec" name="eqvalue3" val="0"/><p type="dec" name="eqvalue4" val="0"/><p type="dec" name="eqvalue5" val="0"/><p type="dec" name="eqvalue6" val="0"/><p type="dec" name="eqvalue7" val="0"/>`
+
+### Bass / Treble
+
+`GetBass`, `SetBass`, `GetTreble`, and `SetTreble` timed out on this device/firmware during this run. That suggests these names are not exposed on this model, or require a different command family/endpoint.
+
 ## Local Web Test Harness
 
 This repo now includes a simple local web app to test and track Samsung soundbar commands.
